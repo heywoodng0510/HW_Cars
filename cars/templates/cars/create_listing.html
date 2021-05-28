@@ -1,0 +1,38 @@
+{% extends "cars/layout.html" %}
+
+{% block body %}
+    <h2 class="theme">Add New Car</h2>
+    <div class="listings-row">
+
+        <div class="creating-col">
+            <form action="{% url 'create_listing' %}" method="post" enctype="multipart/form-data">
+
+                {% csrf_token %}
+                <div class="creating-subcol">
+                    <label>Listing Name:</label>
+                    {{ form.name_input }}
+                </div>
+                <div class="creating-subcol">
+                    <label>Listing Desc:</label>
+                    {{ form.desc_input }}
+                </div>
+                {% comment %} <div class="creating-subcol">
+                    <label>Starting Bid:</label>
+                    {{ form.bid_input }}
+                </div> {% endcomment %}
+                <div class="creating-subcol">
+                    <label>Brand:</label>
+                    {{ form.brand_select }}
+                </div>
+                <div class="creating-subcol">
+                    <label>Image:</label>
+                    {{ form.image_upload }}
+                </div>
+
+                <input type="submit" class="creating-btn" value="Create Listing">
+                
+            </form>
+        </div>
+
+    </div>
+{% endblock %}

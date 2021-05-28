@@ -1,0 +1,21 @@
+{% extends "cars/layout.html" %}
+
+{% block body %}
+    <h2 class="theme">{{ b_title.brand }}</h2>
+    <div class="listings-row">
+
+        {% for listing in b_listing %}
+
+            <div class="listings-col-3">
+                <a href="{% url 'detail' listing.id %}">
+                    <img src="{{ listing.item_image.url }}">
+                </a>
+                <h4>{{ listing.item_name }}</h4>
+                <h6>{{ listing.item_desc }}</h5>
+                {% comment %} <h6 class="bid">{{ listing.starting_bid }}</h6> {% endcomment %}
+            </div>
+
+        {% endfor %}
+
+    </div>
+{% endblock %}

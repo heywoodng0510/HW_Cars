@@ -1,0 +1,16 @@
+{% extends "cars/layout.html" %}
+
+{% block body %}
+    <h2 class="theme">Brand</h2>
+    <div class="listings-row">
+    
+        {% for b in brands %}
+            <div class="listings-col-3">
+                <a href="{% url 'brand_listing' b_id=b.id %}">
+                    <img src="{{ b.b_image.url }}">
+                </a>
+            </div>
+        {% endfor %}
+    
+    </div>
+{% endblock %}
