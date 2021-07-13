@@ -2,67 +2,133 @@
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>{% block title %}Model Cars{% endblock %}</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <link href="{% static 'cars/styles.css' %}" rel="stylesheet">
-        <script src="https://kit.fontawesome.com/b82f2b0cbc.js" crossorigin="anonymous"></script>
-    </head>
-    <body>
-        <div class="header">
-            <div class="row">
-                <h1>Model Cars</h1>
-                <div class="navbar">
-                    <div class="sign-in-bar">
-                        {% if user.is_authenticated %}
-                            Signed in as <strong>{{ user.username }}</strong>.
-                        {% else %}
-                            Not signed in.
-                        {% endif %}
-                    </div>
-                    <ul class="nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'index' %}">Catalogue</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'brand' %}">Brand</a>
-                        </li>
-                        {% if user.is_authenticated %}
-                            <li class="nav-item">
-                                <a class="nav-link" href="{% url 'watchlist' %}">Watchlist</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{% url 'create_listing' %}">Create Listing</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
-                            </li>
-                        {% else %}
-                            <li class="nav-item">
-                                <a class="nav-link" href="{% url 'login' %}">Log In</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{% url 'register' %}">Register</a>
-                            </li>
-                        {% endif %}
-                    </ul>
-                    
-                </div>
-            </div>
-        </div>
 
-        <hr>
-        
-        <div class="main">
-            <div class="row">
-                {% block body %}
-                {% endblock %}
+<head>
+    <title>{% block title %}Model Cars{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    {% comment %} <link rel="stylesheet" type="text/css" media="screen and (max-device-width: 400px)" href="Screen.css"> {% endcomment %}
+    {% comment %} <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin> {% endcomment %}
+    {% comment %} <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet" crossorigin> {% endcomment %}
+    {% comment %} <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200&display=swap" rel="stylesheet" crossorigin> {% endcomment %}
+    <link href="{% static '/bootstrap-5.0.1/dist/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static '/node_modules/owl.carousel/dist/assets/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static '/node_modules/animate.css/animate.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'cars/styles.css' %}" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/b82f2b0cbc.js" crossorigin="anonymous"></script>
+    {% block script %}{% endblock %}
+</head>
+
+<body>
+
+    {% comment %} ---------- Header region ---------- {% endcomment %}
+    <div class="header bg-light text-dark" id="myHeader">
+        <div class="container">
+            <div class="header-poly-div">
+                <img src="/media/images/header-polygon-1080.svg">
+            </div>
+            <div class="header-main-div d-flex flex-wrap align-items-center justify-content-between">
+                <div class="search">
+                    <i class="fab fa-searchengin search__icon"></i>
+                    <input type="text" class="search__input" placeholder="&nbsp;" />
+                    <i class="fas fa-times search__close"></i>
+                    <i class="fas fa-backspace search__delete"></i>
+                </div>
+
+                <div class="logo d-flex justify-content-center align-items-end">
+                    <a href="#" class="about-link nav-link mb-1 text-dark">About</a>
+                    <a href="/" class="logo-div">
+                        <img  class="pb-3" src="/media/images/hw-car.png">
+                    </a>
+                    <a href="{% url 'catalogue' %}" class="catalogue-link nav-link mb-1 text-dark">Catalogue</a>
+                </div>
+
+                <div class="menu-div">
+                    <div class="menu d-flex">
+                        <i class="fas fa-gas-pump menu-toggler o-75"></i>
+                        <nav class="side-navbar">
+                            <span class="menu-close">&#10006;</span>
+                            <ul class="menu-items ps-0">
+                                {% if user.is_authenticated %}
+                                <a href="{% url 'logout' %}" class="btn btn-outline-dark me-2">
+                                    <li class="menu-item">Log Out</li>
+                                </a>
+                                <span>Signed in as <strong>{{ user.username }}</strong>.</span>
+                                {% else %}
+                                <a href="{% url 'login' %}" class="menu-item-url">
+                                    <li class="menu-item">Login</li>
+                                </a>
+                                <a href="{% url 'register' %}" class="menu-item-url">
+                                    <li class="menu-item">Sign Up</li>
+                                </a>
+                                {% endif %}
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+
             </div>
         </div>
-    </body>
+        <span class="svg-tape-down"></span>
+    </div>
+    {% comment %} ---------- Header region ---------- {% endcomment %}
+
+
+    {% comment %} ---------- Banner region ---------- {% endcomment %}
+    {% block banner %}
+    {% endblock %}
+    {% comment %} ---------- Banner region ---------- {% endcomment %}
+
+
+    {% comment %} ---------- Main region ---------- {% endcomment %}
+    {% block main %}
+    {% endblock %}
+    {% comment %} ---------- Main region ---------- {% endcomment %}
+        
+
+    {% comment %} ---------- Update region ---------- {% endcomment %}
+    {% block update_block %}
+    {% endblock %}
+    {% comment %} ---------- Update region ---------- {% endcomment %}
+
+
+    {% comment %} ---------- Footer region ---------- {% endcomment %}
+    <div class="footer">
+        <div class="container">
+            <div class="footer-info">
+                <div class="social-media">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+                <div class="footer-nav">
+                    <ul class="footer-nav-second">
+                        <li class="footer-nav-item"><a href="#"><span>サイトマップ</span></a></li>
+                        <li class="footer-nav-item"><a href="#"><span>プライバシーポリシー</span></a></li>
+                        <li class="footer-nav-item"><a href="#"><span>当サイトのご利用について</span></a></li>
+                    </ul>
+                    <div class="footer-pagetop">
+                        <div class="footer-pagetop-child"><span>PAGE TOP</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="copyright">Copyright © 2021 – website created by gutieYpong</p>
+            </div>
+        </div>
+    </div>
+    {% comment %} ---------- Footer region ---------- {% endcomment %}
+
+</body>
+
 </html>
 
 <style>
     {% block style %}
     {% endblock %}
 </style>
+
+
+<script src="{% static '/bootstrap-5.0.1/dist/js/bootstrap.min.js' %}"></script>
+<script src="{% static '/node_modules/jquery/dist/jquery.js' %}"></script>
+<script src="{% static '/node_modules/owl.carousel/dist/owl.carousel.min.js' %}"></script>

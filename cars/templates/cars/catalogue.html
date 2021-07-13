@@ -1,0 +1,125 @@
+{% extends "cars/layout.html" %}
+{% load static %}
+
+{% block main %}
+<div class="catalogue-main">
+  <div class="container">
+    {% comment %} <p class="h2 theme">Catalogue</p> {% endcomment %}
+
+    <div class="content-div row justify-content-center">
+
+      <div class="list-group row col-md-3 align-items-center">
+        <p class="filter-tag-title h6">Filter <</p>
+
+        {% if brands %}
+          {% for b in brands %}
+            {% comment %} <label class="list-group-item"> {% endcomment %}
+            <div class="custom-list-item d-flex justify-content-between">
+            <label id="label-{{ b.brand }}">&nbsp;&nbsp;{{ b.brand }}</label>
+            <input class="form-check-input me-1" id="{{ b.brand }}" type="checkbox" value="">
+            </div>
+          {% endfor %}    
+        {% endif %}
+      </div>
+
+
+      <div class="content-right-div row col-md-9 p-0">
+        <div class="ticket-group row row-cols-3">
+
+          {% if active_items %}
+            {% for item in active_items %}
+                  
+            <div class="col p-3" id="col-{{ item.item_brand }}">
+                
+              <div class="ticket">
+                <span class="ticket-ellipse"></span>
+                <span class="ticket-forbidden"></span>
+                <span class="ticket-forbidden-word"></span>            
+                <div class="ticket-img">
+                  <div class="ticket-info d-flex flex-column justify-content-center align-items-center">
+                    <h5>{{ item.item_name }}<br />
+                        {% comment %} <span>{{ item.item_brand }}</span> {% endcomment %}
+                    </h5>
+                    <p class="card-text">“{{ item.item_desc }}” </p>
+                  </div>
+                  <img src="{{ item.item_image.url }}" alt="">
+                </div>
+              </div>
+
+
+              {% comment %} <div class="card shadow-sm align-items-center"> {% endcomment %}
+              {% comment %} <div class="card shadow-sm">
+                <div class="card-img text-center">
+                  <a href="{% url 'detail' item.id %}"><img src="{{ item.item_image.url }}"></a>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">{{ item.item_desc }}</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                    </div>
+                    <small class="text-muted">{{ item.item_name }}</small>
+                  </div>
+                </div>
+              </div> {% endcomment %}
+
+              {% comment %} <a href="{% url 'detail' item.id %}"><img src="{{ item.item_image.url }}"></a>
+              
+              <p class="listings-title">{{ item.item_name }}</p>
+              <p class="listings-desc">{{ item.item_desc }}</p> {% endcomment %}
+              {% comment %} <h6 class="bid">{{ item.starting_bid }}</h6> {% endcomment %}
+            </div>
+                  
+            {% endfor %}    
+          {% endif %}
+
+          {% comment %} <div class="col">
+            <div class="add-item-card card shadow-sm">
+              <div class="add-item text-center">
+                <a href="#"><img src="/media/images/question-mark.png"></a>
+              </div>
+              <div class="card-body">
+                <p class="card-text">Add New Item</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                  </div>
+                  <small class="text-muted">New Item</small>
+                </div>
+              </div>
+            </div>
+          </div> {% endcomment %}
+        </div>
+
+        <div class="pagination justify-content-center">
+          <nav aria-label="Page navigation example">
+            <ul class="pagination">
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <span class="svg-tape-down"></span>
+</div>
+{% endblock %}
+
+{% block script %}
+  <script type="text/javascript" src="{% static 'js/catalogue.js' %}"></script>
+{% endblock %}

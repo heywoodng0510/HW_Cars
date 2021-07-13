@@ -1,0 +1,242 @@
+.index-main {
+  position: relative;
+
+  .svg-tape-down {
+    @extend %svg-tape;
+    position: absolute;
+    bottom: 0;
+  }
+
+  .container {
+    padding: 2rem 0 calc(2rem + 5vh) 0;
+    height: 97vh;
+  
+    .quote-carousel {
+      position: relative;
+      flex-basis: 40%;
+    
+      .h2, .h3 {
+        font-family: 'Aquire', 'sans-serif';
+        font-weight: bold;
+        text-align: center;
+        color: #000;
+      }
+    
+      .quote {
+        display: none;
+    
+        &.active {
+          display: block;
+        }
+      }
+    }
+    
+    
+    .car-carousel {
+      position: relative;
+      // height: 65vh;
+    
+      .owl-stage-outer {
+        padding: 30px 0;
+      }
+    
+      .owl-nav {
+        // display: block;
+        display: none;
+      }
+    
+      .owl-dots {
+        text-align: center;
+    
+        span {
+          position: relative;
+          height: 10px;
+          width: 10px;
+          border-radius: 50%;
+          display: block;
+          background: #fff;
+          border: 2px solid #01b0f8;
+          margin: 0 5px;
+        }
+    
+        .active {
+          box-shadow: none;
+    
+          span {
+            background: #01b0f8;
+            box-shadow: none;
+            height: 12px;
+            width: 12px;
+            margin-bottom: -1px;
+          }
+        }
+      }
+    
+      .owl-carousel {
+        width: 100%;
+      }
+    
+      .owl-item {
+        -webkit-backface-visibility: hidden;
+        -webkit-transform: translateZ(0) scale(1.0, 1.0);
+        display: flex;
+        justify-content: center;
+    
+        &.active {
+          .ticket {
+            opacity: 0.4;
+            transition: .4s ease all;
+            transform: scale(.8);
+          }
+    
+          &.center {
+            .ticket {
+              opacity: 1;
+              transform: scale(1);
+            }
+    
+            .ticket-info:hover {
+              opacity: 1;
+            }
+          }
+        }
+    
+        // $height-percent: 74.48%;
+        // $aspect-ratio: calc(287 / 386);
+    
+        .ticket {
+          position: relative;
+          // max-height: 386px; // 42.18, 386px
+          // max-width: 287px; // 24.198, 287px
+          // height: 42.18vh;
+          height: 24.2vw / (287 / 386);
+          width: 24.2vw;
+          border-radius: 5px;
+          background: rgba(204, 0, 3, 0.02);
+          box-shadow: inset 0px -3px 10px rgba(0, 0, 0, 0.25);
+      
+          opacity: 0.4;
+          transition: .4s ease all;
+          transform: scale(.8);
+      
+          &-ellipse {
+            position: absolute;
+            left: 47.74%;
+            right: 47.74%;
+            top: 4.4%;
+            bottom: 92.23%;
+      
+            background: #FFFFFF;
+            box-shadow: inset 0px 4px 3px rgba(0, 0, 0, 0.25);
+            border-radius: 50%;
+          }
+      
+          &-forbidden {
+            position: absolute;
+            left: 40.42%;
+            right: 34.49%;
+            top: 12.18%;
+            bottom: 69.17%;
+      
+            width: 25.08%; // 72px
+    
+            background: url('/media/images/forbidden-sign.png');
+            background-size: contain;
+            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+            z-index: 500;
+          }
+      
+          &-forbidden-word {
+            position: absolute;
+            height: 9%; // 35px
+            width: 46.69%; // 134px
+      
+            left: 29.27%;
+            right: 24.04%;
+            top: 15.8%;
+            bottom: 75.13%;
+      
+            background: url(/media/images/parking-violate.svg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            z-index: 700;
+          }
+      
+          &-img {
+            position: absolute;
+            height: 76.16%; // 294
+            width: 100%; // 287
+      
+            left: 2.79%;
+            right: -2.79%;
+            top: 21.5%;
+            bottom: 2.33%;
+            border-radius: 5px;
+            
+            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+            z-index: 100;
+      
+            .ticket-info {
+              position: absolute;
+              content: "";
+              width: 100%;
+              height: 100%;
+              background-color: rgba(22, 22, 22, 0.8);
+              top: 0;
+              left: 0;
+              z-index: 999;
+              border-radius: 5px;
+              font-family: 'Aquire';
+              text-align: center;
+              color: #FFF;
+              opacity: 0;
+              transition: all 0.3s;
+    
+              // &:hover {
+              //   opacity: 1;
+              // }
+            }
+    
+            img {
+              width: 100%;
+              height: 100%;
+              border-radius: inherit;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .ticket {
+    max-height: 289.5px;
+    max-width: 215.25px;
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  .ticket {
+    max-height: 386px;
+    max-width: 287px;
+  }
+}
+
+// // @media (max-width: 767px) {
+// //   .gtco-testimonials {
+// //     margin-top: 20px;
+// //   }
+// // }
+
+// // .owl-carousel {
+// //   .owl-nav button {
+// //     &.owl-next, &.owl-prev {
+// //       outline: 0;
+// //     }
+// //   }
+
+// //   button.owl-dot {
+// //     outline: 0;
+// //   }
+// // }

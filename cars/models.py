@@ -10,8 +10,11 @@ class Brand(models.Model):
     brand = models.CharField(max_length=24)
     b_image = models.ImageField(upload_to='images/', blank=True, null=True)
 
+    class Meta:
+        ordering = ['brand']
+
     def __str__(self):
-        return f"{self.id}, {self.brand}"
+        return f"{self.brand}"
 
 
 class Listing(models.Model):

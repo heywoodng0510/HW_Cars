@@ -23,6 +23,16 @@ def index(request):
         "inactive_items": listings_inactive
     })
 
+def catalogue(request):
+    listings_active = Listing.objects.filter(is_active=True)
+    listings_inactive = Listing.objects.filter(is_active=False)
+
+    return render(request, "cars/catalogue.html", {
+        "active_items": listings_active,
+        "inactive_items": listings_inactive,
+        "brands": Brand.objects.all()
+    })
+
 
 def brand(request):
 

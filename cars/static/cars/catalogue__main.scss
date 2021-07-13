@@ -1,0 +1,213 @@
+@import "variables";
+
+.catalogue-main {
+  position: relative;
+
+  .svg-tape-down {
+    @extend %svg-tape;
+    position: absolute;
+    bottom: 0;
+  }
+
+  .container {
+    padding: 2rem 0 calc(2rem + .5vh) 0;
+    height: 100%;
+
+    .theme {
+      position: relative;
+      line-height: 4rem;
+      color: #555;
+      text-align: center;
+      font-family: 'Playfair-Display', 'sans-serif';
+      &:after {
+        position: absolute;
+        content: "";
+        background: #ff523b;
+        width: 10rem;
+        height: 0.3125rem;
+        border-radius: 0.3125rem;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+
+    .row {
+      padding: 1.5rem 1.5rem;
+    }
+    
+    .list-group {
+      .filter-tag-title {
+        font-family: 'Aquire';
+        font-weight: bold;
+      }
+
+      .custom-list-item {
+        position: relative;
+        padding: .5rem 0;
+        width: 75%;
+
+        &:before {
+          position: absolute;
+          content: "";
+          background: #e2e2e2;
+          width: 100%;
+          height: .0625rem;
+          border-radius: 0.3125rem;
+          top: 0;
+        }
+
+        label {
+          font-family: 'Aquire';
+        }
+      }
+    }
+
+
+    .ticket-group {
+      .ticket {
+
+        position: relative;
+        // max-height: 386px; // 42.18, 386px
+        // max-width: 287px; // 24.198, 287px
+        // height: 42.18vh;
+        height: 16vw / (287 / 386);
+        width: 16vw;
+        // width: 215.25px;
+        // height: 289.5px;
+
+        border-radius: 5px;
+        background: rgba(204, 0, 3, 0.02);
+        box-shadow: inset 0px -3px 10px rgba(0, 0, 0, 0.25);
+    
+        // opacity: 0.4;
+        // transition: .4s ease all;
+        // transform: scale(.8);
+    
+        &-ellipse {
+          position: absolute;
+          left: 47.74%;
+          right: 47.74%;
+          top: 4.4%;
+          bottom: 92.23%;
+    
+          background: #FFFFFF;
+          box-shadow: inset 0px 4px 3px rgba(0, 0, 0, 0.25);
+          border-radius: 50%;
+        }
+    
+        &-forbidden {
+          position: absolute;
+          left: 40.42%;
+          right: 34.49%;
+          top: 12.18%;
+          bottom: 69.17%;
+    
+          width: 25.08%; // 72px
+  
+          background: url('/media/images/forbidden-sign.png');
+          background-size: contain;
+          filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+          z-index: 500;
+        }
+    
+        &-forbidden-word {
+          position: absolute;
+          height: 9%; // 35px
+          width: 46.69%; // 134px
+    
+          left: 29.27%;
+          right: 24.04%;
+          top: 15.8%;
+          bottom: 75.13%;
+    
+          background: url(/media/images/parking-violate.svg);
+          background-size: cover;
+          background-repeat: no-repeat;
+          z-index: 700;
+        }
+    
+        &-img {
+          position: absolute;
+          height: 76.16%; // 294
+          width: 100%; // 287
+    
+          left: 2.79%;
+          right: -2.79%;
+          top: 21.5%;
+          bottom: 2.33%;
+          border-radius: 5px;
+          
+          filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+          z-index: 100;
+    
+          .ticket-info {
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 100%;
+            background-color: rgba(22, 22, 22, 0.8);
+            top: 0;
+            left: 0;
+            z-index: 999;
+            border-radius: 5px;
+            font-family: 'Aquire';
+            text-align: center;
+            color: #FFF;
+            opacity: 0;
+            transition: all 0.3s;
+  
+            &:hover {
+              opacity: 1;
+            }
+          }
+  
+          img {
+            width: 100%;
+            height: 100%;
+            border-radius: inherit;
+          }
+        }
+      }
+    }
+    
+
+    // .card {
+    //   width: 215.25px;
+    //   height: 289.5px;
+    //   transition: transform 0.5s;
+
+    //   &:hover {
+    //     transform: translateY(-0.3125rem);
+    //   }
+
+    //   &-img {
+    //     width: 100%;
+    //     height: 100%;
+
+    //     img {
+    //       width: 100%;
+    //       height: 100%;
+    //     }
+    //   }
+    // }
+
+    .add-item-card {
+      width: 215.25px;
+      height: 289.5px;
+      border-style: dashed;
+      border-color: lightgray;
+      .add-item {
+        width: 100%;
+        height: 100%;
+        padding: 2.5vh 0;
+        a {
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+    }
+  }
+}

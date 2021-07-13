@@ -1,0 +1,189 @@
+/* ----- basic variables ----- */
+/* ----- --------------- ----- */
+/* ----- color variables ----- */
+/* ----- --------------- ----- */
+/* ----- animated border ----- */
+/* ----- --------------- ----- */
+.catalogue-main .svg-tape-down {
+  display: inline-block;
+  height: 3vh;
+  width: 100%;
+  background: url(/media/images/no-parking.svg);
+  background-size: contain;
+  background-repeat: repeat;
+}
+
+.catalogue-main {
+  position: relative;
+}
+
+.catalogue-main .svg-tape-down {
+  position: absolute;
+  bottom: 0;
+}
+
+.catalogue-main .container {
+  padding: 2rem 0 calc(2rem + .5vh) 0;
+  height: 100%;
+}
+
+.catalogue-main .container .theme {
+  position: relative;
+  line-height: 4rem;
+  color: #555;
+  text-align: center;
+  font-family: 'Playfair-Display', 'sans-serif';
+}
+
+.catalogue-main .container .theme:after {
+  position: absolute;
+  content: "";
+  background: #ff523b;
+  width: 10rem;
+  height: 0.3125rem;
+  border-radius: 0.3125rem;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.catalogue-main .container .row {
+  padding: 1.5rem 1.5rem;
+}
+
+.catalogue-main .container .list-group .filter-tag-title {
+  font-family: 'Aquire';
+  font-weight: bold;
+}
+
+.catalogue-main .container .list-group .custom-list-item {
+  position: relative;
+  padding: .5rem 0;
+  width: 75%;
+}
+
+.catalogue-main .container .list-group .custom-list-item:before {
+  position: absolute;
+  content: "";
+  background: #e2e2e2;
+  width: 100%;
+  height: .0625rem;
+  border-radius: 0.3125rem;
+  top: 0;
+}
+
+.catalogue-main .container .list-group .custom-list-item label {
+  font-family: 'Aquire';
+}
+
+.catalogue-main .container .ticket-group .ticket {
+  position: relative;
+  height: 21.51916vw;
+  width: 16vw;
+  border-radius: 5px;
+  background: rgba(204, 0, 3, 0.02);
+  -webkit-box-shadow: inset 0px -3px 10px rgba(0, 0, 0, 0.25);
+          box-shadow: inset 0px -3px 10px rgba(0, 0, 0, 0.25);
+}
+
+.catalogue-main .container .ticket-group .ticket-ellipse {
+  position: absolute;
+  left: 47.74%;
+  right: 47.74%;
+  top: 4.4%;
+  bottom: 92.23%;
+  background: #FFFFFF;
+  -webkit-box-shadow: inset 0px 4px 3px rgba(0, 0, 0, 0.25);
+          box-shadow: inset 0px 4px 3px rgba(0, 0, 0, 0.25);
+  border-radius: 50%;
+}
+
+.catalogue-main .container .ticket-group .ticket-forbidden {
+  position: absolute;
+  left: 40.42%;
+  right: 34.49%;
+  top: 12.18%;
+  bottom: 69.17%;
+  width: 25.08%;
+  background: url("/media/images/forbidden-sign.png");
+  background-size: contain;
+  -webkit-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+          filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  z-index: 500;
+}
+
+.catalogue-main .container .ticket-group .ticket-forbidden-word {
+  position: absolute;
+  height: 9%;
+  width: 46.69%;
+  left: 29.27%;
+  right: 24.04%;
+  top: 15.8%;
+  bottom: 75.13%;
+  background: url(/media/images/parking-violate.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 700;
+}
+
+.catalogue-main .container .ticket-group .ticket-img {
+  position: absolute;
+  height: 76.16%;
+  width: 100%;
+  left: 2.79%;
+  right: -2.79%;
+  top: 21.5%;
+  bottom: 2.33%;
+  border-radius: 5px;
+  -webkit-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+          filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  z-index: 100;
+}
+
+.catalogue-main .container .ticket-group .ticket-img .ticket-info {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: rgba(22, 22, 22, 0.8);
+  top: 0;
+  left: 0;
+  z-index: 999;
+  border-radius: 5px;
+  font-family: 'Aquire';
+  text-align: center;
+  color: #FFF;
+  opacity: 0;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.catalogue-main .container .ticket-group .ticket-img .ticket-info:hover {
+  opacity: 1;
+}
+
+.catalogue-main .container .ticket-group .ticket-img img {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+}
+
+.catalogue-main .container .add-item-card {
+  width: 215.25px;
+  height: 289.5px;
+  border-style: dashed;
+  border-color: lightgray;
+}
+
+.catalogue-main .container .add-item-card .add-item {
+  width: 100%;
+  height: 100%;
+  padding: 2.5vh 0;
+}
+
+.catalogue-main .container .add-item-card .add-item a img {
+  width: 100%;
+  height: 100%;
+}
+/*# sourceMappingURL=catalogue__main.css.map */

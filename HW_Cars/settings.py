@@ -27,7 +27,7 @@ SECRET_KEY = 'h4ii_hhe=jdy9fdxu0j!q+jlat0x6fok@nj+6$7t7)6l%svv(p'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['heywoodng0510.pythonanywhere.com', 'localhost']
+ALLOWED_HOSTS = ['heywoodng0510.pythonanywhere.com', 'localhost', '10.10.1.101']
 
 
 # Application definition
@@ -65,6 +65,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.static',
             ],
         },
     },
@@ -133,7 +134,9 @@ STATIC_URL = '/static/'
 # STATICFILES_DIRS = str(BASE_DIR / 'static')
 STATICFILES_DIRS = [
     BASE_DIR + "/cars/static",
-]
+    BASE_DIR + "/static",
+    BASE_DIR,
+    ]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')

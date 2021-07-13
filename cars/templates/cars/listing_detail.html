@@ -30,15 +30,14 @@
                     <button class="close-bid" type="submit" name="CloseBid">Close Bid</button>
                 </form>
             {% endif %} {% endcomment %}
-
-            {% if messages %}
-                <ul class="messages">
-                    {% for message in messages %}
-                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-                    {% endfor %}
-                </ul>
-            {% endif %}         
         {% endif %}
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %} 
     {% comment %} {% else %}
         <h3>THIS AUCTION WINNER IS {{ last_bidder }}.</h3> {% endcomment %}
     {% endif %}

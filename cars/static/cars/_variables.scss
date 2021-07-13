@@ -1,0 +1,48 @@
+/* ----- basic variables ----- */
+$base-font-size: 16px;
+/* ----- --------------- ----- */
+
+
+/* ----- color variables ----- */
+// $clr-primary: #ff7043;
+// $clr-primary-hover: #29e6a7;
+// $clr-primary-dark: #039d69;
+// $clr-gray100: #f9fbff;
+// $clr-gray150: #f4f6fb;
+// $clr-gray200: #eef1f6;
+$clr-gray300: #e1e5ee;
+$clr-gray350: #c7ccdb;
+$clr-gray400: #767b91;
+// $clr-gray500: #4f546c;
+// $clr-gray600: #2a324b;
+// $clr-gray700: #161d34;
+/* ----- --------------- ----- */
+
+
+/* ----- animated border ----- */
+$anime-time: 6s;
+$clip-distance: 0; // 0.025
+$clip-width: 0;
+$clip-height: 0;
+$path-width: .125rem; //.0625rem;
+
+%full-fill {
+  position: absolute;
+  top: -1.25rem;
+  bottom: 1.25rem;
+  left: 1.25rem;
+  right: -1.25rem;
+  z-index: -1;
+}
+/* ----- --------------- ----- */
+
+%svg-tape {
+  display: inline-block;
+  height: 3vh;
+  width: 100%;
+  background: url(/media/images/no-parking.svg);
+  background-size: contain;
+  background-repeat: repeat;
+  // background-position-x: 40%;
+  // z-index: 999;
+}

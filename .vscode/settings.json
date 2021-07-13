@@ -1,0 +1,12 @@
+{
+  "python.pythonPath": "/Users/ponglai/.pyenv/versions/3.7.10/bin/python3.7m",
+  "python.linting.pylintEnabled": true,
+  "python.linting.enabled": true,
+
+  // Added by user:
+  "python.linting.pylintArgs": [
+    "--load-plugins",
+    "pylint_django"
+  ],
+  "git.ignoreLimitWarning": true
+}

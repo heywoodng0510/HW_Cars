@@ -1,0 +1,23 @@
+@import "../../../bootstrap-5.0.1/scss/functions";
+@import "../../../bootstrap-5.0.1/scss/variables";
+@import "../../../bootstrap-5.0.1/scss/utilities";
+
+// User-defined utilities:
+$utilities: map-merge(
+  $utilities,
+  (
+    "opacity": (
+      property: opacity,
+      class: o,
+      values: (
+        0: 0,
+        25: .25,
+        50: .5,
+        75: .75,
+        100: 1,
+      )
+    )
+  )
+);
+
+@import "../../../bootstrap-5.0.1/scss/bootstrap";

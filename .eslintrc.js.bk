@@ -1,0 +1,28 @@
+module.exports = {
+  env: {
+    browser: true,
+    es2021: true,
+  },
+  extends: [
+    'airbnb-base',
+  ],
+  parserOptions: {
+    ecmaVersion: 12,
+    sourceType: 'module',
+  },
+  rules: {
+    'linebreak-style': ['off', 'windows'],
+    'block-spacing': 'error',
+    'space-before-function-paren': ['error', 'always'],
+    'space-in-parens': ['error', 'always', { exceptions: ['[]', '{}', 'empty'] }],
+    'comma-style': ['error', 'last'],
+    'comma-spacing': ['error', { before: false, after: true }],
+    // 'object-curly-spacing': ['error', 'always'],
+    // 'brace-style': ['error', 'allman'],
+    // 'nonblock-statement-body-position': ['error', 'beside'],
+    // 'function-paren-newline': ['error', 'never'],
+    // 'object-curly-newline': ['error', 'never'],
+    // 'prefer-const': ['error', 'never'],
+    // 'arrow-body-style': ['error', 'never'],
+  },
+};
